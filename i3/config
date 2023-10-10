@@ -46,7 +46,7 @@ floating_modifier $mod
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
-tiling_drag modifier titlebar
+# tiling_drag modifier titlebar
 
 # start a terminal
 bindsym $mod+Return exec kitty 
@@ -181,10 +181,27 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
+# Colors
+set $eigen 		#1f1f28
+set $darkCream		#ddd8bb
+set $oliver		#49473e
+set $white 		#ffffff
+
+#			BORDER		BACKGROUND	TEXT	INDICATOR	CHILD_BORDER
+client.focused		$darkCream	$eigen		$white	$oliver		$oliver
+client.unfocused	$oliver		$eigen		$white	$darkCream	$eigen	
+client.focused_inactive	$oliver		$eigen		$white	$darkCream	$white
+client.urgent		$eigen		$eigen		$white	$darkCream	$white
+client.background	$eigen
+
+
 bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
         status_command i3status
+	colors {
+		background	$eigen
+	}
 }
