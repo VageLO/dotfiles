@@ -101,3 +101,7 @@ source $ZSH/oh-my-zsh.sh
 alias ls='ls --color=auto -hv --group-directories-first'
 alias la='ls -lAG'
 alias lst='tree -v --dirsfirst'
+alias lg='lazygit'
+
+export EDITOR=nvim
+export VISUAL=nvim
