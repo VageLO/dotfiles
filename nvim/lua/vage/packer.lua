@@ -14,4 +14,6 @@ return require('packer').startup(function(use)
 			vim.cmd('colorscheme kanagawa')
 		end
 	})
+
+	use 'ThePrimeagen/vim-be-good'
 end)
