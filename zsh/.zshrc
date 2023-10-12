@@ -98,7 +98,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias ls='ls --color=auto -hv --group-directories-first'
+alias ls='ls -l --color=auto -hv --group-directories-first'
 alias la='ls -lAG'
 alias lst='tree -v --dirsfirst'
 alias lg='lazygit'
