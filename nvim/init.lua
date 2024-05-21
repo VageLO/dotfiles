@@ -13,7 +13,7 @@ require("lazy").setup({
         { import = "plugins" },
     },
     install = { colorscheme = { "catppucin" } },
-    checker = { enabled = true }, -- automatically check for plugin updates
+    checker = { enabled = true, notify = false }, -- automatically check for plugin updates
     change_detection = {
       enabled = true,
       notify = false,
