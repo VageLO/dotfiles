@@ -4,7 +4,7 @@
 
 local opt = vim.opt
 
-opt.number = false
+opt.number = true
 opt.relativenumber = false
 opt.linebreak = true
 opt.scrolloff = 8
