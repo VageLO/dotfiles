@@ -13,7 +13,7 @@ cursor = "#ffffff"
 text = "0x22272e"
 
 [colors.normal]
-black = "0x545d68"
+black = "#000000"
 blue = "0x539bf5"
 cyan = "0x39c5cf"
 green = "0x57ab5a"
