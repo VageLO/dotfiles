@@ -21,3 +21,6 @@ vim.keymap.set("n", "<C-p>", function() harpoon:list():prev() end, { desc = "Go 
 vim.keymap.set("n", "<C-n>", function() harpoon:list():next() end, { desc = "Go to Next Buffer" })
 
 vim.keymap.set("n", "<leader>lg", "<cmd>LazyGit<cr>", { desc = "Lazy Git" })
+
+-- Explorer
+vim.keymap.set("n", "<leader>e", "<cmd>Explore<cr>", { desc = "Explorer" })

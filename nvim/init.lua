@@ -12,12 +12,8 @@ require("lazy").setup({
         { "LazyVim/LazyVim", import = "lazyvim.plugins" },
         { import = "plugins" },
     },
-    install = { colorscheme = { "catppucin" } },
-    checker = { enabled = true, notify = false }, -- automatically check for plugin updates
-    change_detection = {
-      enabled = true,
-      notify = false,
-    },
+    checker = { enabled = true, notify = false },
+    change_detection = { enabled = true, notify = false },
     performance = {
         rtp = {
             -- disable some rtp plugins

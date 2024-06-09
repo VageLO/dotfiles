@@ -61,6 +61,11 @@ return {
         }
       end, { desc = '[S]earch [/] in Open Files' })
 
+      -- Shortcut for searching your dotfiles
+      vim.keymap.set('n', '<leader>sc', function()
+        builtin.find_files { cwd = vim.env.DOTFILES }
+      end, { desc = '[S]earch [C]onfig files' })
+
       -- Shortcut for searching your Neovim configuration files
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
