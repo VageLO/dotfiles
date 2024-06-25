@@ -29,7 +29,6 @@ return {
             ensure_installed = {
                 "lua_ls",
                 "gopls",
-                "goimports",
             },
             handlers = {
                 function(server_name)
