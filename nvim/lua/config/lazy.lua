@@ -13,9 +13,8 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup({
 	spec = {
+    { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     { import = "plugins" },
   },
-
-
-    change_detection = { enabled = true, notify = false },
+  change_detection = { enabled = true, notify = false },
 })
