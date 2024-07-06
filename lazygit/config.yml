@@ -247,5 +247,5 @@ os:
   #editPreset: 'nvim'
   #openDirInEditor: 'nvim {{dir}}'
   # open: 'nvim {{filename}}'
-  editCommand: 'nvim'
+  Edit: 'nvim'
 
