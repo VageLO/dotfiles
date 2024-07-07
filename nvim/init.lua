@@ -15,10 +15,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  spec = {
-    { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-    { import = "plugins" }
-  },
-  defaults = { lazy = false, version = "*", },
-  change_detection = { enabled = true, notify = false },
+    spec = {
+        { import = "plugins" },
+    },
+    install = { colorscheme = { "catppuccin" } },
+    ui = { border = "single" },
+    defaults = { lazy = false, version = "*", },
+    change_detection = { enabled = true, notify = false },
 })
