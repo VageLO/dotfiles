@@ -30,6 +30,7 @@ return {
                 "lua_ls",
                 "gopls",
             },
+            automatic_installation = true,
             handlers = {
                 function(server_name)
                     require("lspconfig")[server_name].setup {
@@ -71,5 +72,10 @@ return {
                 prefix = "",
             },
         })
+
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {})
+        --vim.keymap.set({ "n" }, "<leader>ca", vim.lsp.buf.code_action, {})
     end
 }
