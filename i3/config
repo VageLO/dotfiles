@@ -36,6 +36,10 @@ bindsym $mod+Shift+q kill
 # start rofi(a program launcher)
 bindsym $mod+d exec --no-startup-id "rofi -modi drun,run -show drun"
 
+# Screenshot
+bindsym $mod+p exec scrot 'screenshot_%Y-%m-%d_%H-%M-%S.png' -q 100 -M 0 -e 'xclip -selection clipboard -target image/png -i $f && mv $f ~/Pictures/'
+bindsym $mod+Shift+p exec scrot 'screenshot_%Y-%m-%d_%H-%M-%S.png' -q 100 -M 0 -e 'xclip -selection clipboard -target image/png -i $f && rm $f'
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
