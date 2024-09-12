@@ -1,0 +1,3 @@
+[submodule "mpv"]
+	path = mpv 
+	url = https://github.com/VageLO/mpv-config
