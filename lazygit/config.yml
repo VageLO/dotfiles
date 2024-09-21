@@ -3,7 +3,7 @@ gui:
     branchColors: {}
     scrollHeight: 2
     scrollPastBottom: true
-    mouseEvents: false 
+    mouseEvents: false
     skipDiscardChangeWarning: false
     skipStashWarning: false
     sidePanelWidth: 0.3333
@@ -46,7 +46,7 @@ gui:
     showFileTree: true
     showRandomTip: true
     showCommandLog: true
-    showBottomLine: false 
+    showBottomLine: false
     showIcons: false
     nerdFontsVersion: ""
     showBranchCommitHash: false
@@ -140,7 +140,7 @@ keybinding:
         scrollDownMain-alt1: J
         scrollUpMain-alt2: <c-u>
         scrollDownMain-alt2: <c-d>
-        executeCustomCommand: ':'
+        executeShellCommand: ':'
         createRebaseOptionsMenu: m
         pushFiles: P
         pullFiles: p
@@ -244,8 +244,7 @@ services: {}
 notARepository: prompt
 promptToReturnFromSubprocess: true
 os:
-  #editPreset: 'nvim'
-  #openDirInEditor: 'nvim {{dir}}'
-  # open: 'nvim {{filename}}'
-  Edit: 'nvim'
-
+    #editPreset: 'nvim'
+    #openDirInEditor: 'nvim {{dir}}'
+    # open: 'nvim {{filename}}'
+    Edit: 'nvim'
