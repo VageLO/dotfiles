@@ -25,7 +25,8 @@ write_daily_note() {
 
     if [ ! -f "$FILE_PATH" ]; then
         xdg-open "obsidian://new?vault=main-vault&file=$FILE" &
-        sleep 5
+        sleep 10
+        pkill -f obsidian
     fi
     # TODO: Write log to Pomodor header
     printf '\n%s' "$DATE" >> "$FILE_PATH"
