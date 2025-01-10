@@ -60,7 +60,7 @@ check_timer() {
                 stop_timer
 
                 if [ $ISNOTE == "true" ]; then
-                    write_daily_note "🍅 $(date "+%B %d, %Y, %I:%M %p")"
+                    write_daily_note "🍅 $(date "+%B %d %Y, %I:%M %p")"
                 fi
 
                 # Play sound when timer is done
