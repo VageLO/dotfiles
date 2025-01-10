@@ -1,4 +1,4 @@
-TIMER_FILE="i3timer"
+TIMER_FILE=".i3timer"
 STATUS="stopped"
 TIME=0
 
