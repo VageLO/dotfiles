@@ -18,6 +18,25 @@ stop_timer() {
     echo "$STATUS,0,0,false,$SOUND" > "$TIMER_FILE"
 }
 
+append_to_header() {
+    local file="$1"
+    local header="$2"
+    local data="$3"
+    
+    # Escape special characters for sed
+    header=$(printf '%s\n' "$header" | sed 's/[\/&]/\\&/g')
+
+    # Check if the header exists
+    if grep -q "^#\s*$header\s*$" "$file"; then
+        # If header exists, append data with newlines at start and end
+        sed -i '/^#\s*'"$header"'\s*$/a\
+'"$data"'' "$file"
+    else
+        # If header does not exist, add header and data at the end of the file
+        printf "\n# %s\n\n%s\n" "$header" "$data" >> "$file"
+    fi
+}
+
 write_daily_note() {
     local DATE=$1
     FILE="Notes/DailyNotes/$(date +"%Y")/$(date +"%-m")/$(date +"%Y-%-m-%d").md"
@@ -28,8 +47,8 @@ write_daily_note() {
         sleep 10
         pkill -f obsidian
     fi
-    # TODO: Write log to Pomodor header
-    printf '\n%s' "$DATE" >> "$FILE_PATH"
+
+    append_to_header "$FILE_PATH" "Pomodoro Timer" "$DATE"
 }
 
 check_timer() {
