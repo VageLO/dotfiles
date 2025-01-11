@@ -1,4 +1,4 @@
-TIMER_FILE=".i3timer"
+TIMER_FILE="$HOME/.i3timer"
 STATUS="stopped"
 TIME=0
 
@@ -40,7 +40,7 @@ append_to_header() {
 write_daily_note() {
     local DATE=$1
     FILE="Notes/DailyNotes/$(date +"%Y")/$(date +"%-m")/$(date +"%Y-%-m-%d").md"
-    FILE_PATH="/home/vagelo/main-vault/$FILE"
+    FILE_PATH="$VAULT/$FILE"
 
     if [ ! -f "$FILE_PATH" ]; then
         xdg-open "obsidian://new?vault=main-vault&file=$FILE" &
@@ -49,6 +49,9 @@ write_daily_note() {
     fi
 
     append_to_header "$FILE_PATH" "Pomodoro Timer" "$DATE"
+
+    # Update pomodoro counter property
+    $VAULT/pomodoro
 }
 
 check_timer() {
@@ -60,7 +63,7 @@ check_timer() {
                 stop_timer
 
                 if [ $ISNOTE == "true" ]; then
-                    write_daily_note "🍅 $(date "+%B %d %Y, %I:%M %p")"
+                    write_daily_note "🍅 $(date "+%B %d %Y, %I:%M %p") - $((DURATION / 60))min"
                 fi
 
                 # Play sound when timer is done
