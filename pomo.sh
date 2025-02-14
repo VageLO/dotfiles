@@ -51,7 +51,7 @@ write_daily_note() {
     append_to_header "$FILE_PATH" "Pomodoro Timer" "$DATE"
 
     # Update pomodoro counter property
-    $VAULT/pomodoro
+    $VAULT/pomodoro -d $FILE_PATH
 }
 
 check_timer() {
