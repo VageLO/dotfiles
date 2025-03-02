@@ -93,6 +93,8 @@ shift $((OPTIND - 1))
 
 case "$ACTION" in
     "start")
+        # Start lofi girl
+        mpv "https://www.youtube.com/live/jfKfPfyJRdk?si=GdxH9mFQNkyaitxm" &
         start_timer
         ;;
     "stop")
