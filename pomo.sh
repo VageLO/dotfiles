@@ -43,9 +43,8 @@ write_daily_note() {
     FILE_PATH="$VAULT/$FILE"
 
     if [ ! -f "$FILE_PATH" ]; then
-        xdg-open "obsidian://new?vault=main-vault&file=$FILE" &
-        sleep 10
-        pkill -f obsidian
+        obsidian "obsidian://new?vault=main-vault&file=$FILE" > /dev/null 2>&1 &
+        sleep 12
     fi
 
     append_to_header "$FILE_PATH" "Pomodoro Timer" "$DATE"
@@ -93,8 +92,6 @@ shift $((OPTIND - 1))
 
 case "$ACTION" in
     "start")
-        # Start lofi girl
-        mpv "https://www.youtube.com/live/jfKfPfyJRdk?si=GdxH9mFQNkyaitxm" &
         start_timer
         ;;
     "stop")
