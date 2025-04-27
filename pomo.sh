@@ -22,7 +22,7 @@ append_to_header() {
     local file="$1"
     local header="$2"
     local data="$3"
-    
+
     # Escape special characters for sed
     header=$(printf '%s\n' "$header" | sed 's/[\/&]/\\&/g')
 
@@ -43,8 +43,9 @@ write_daily_note() {
     FILE_PATH="$VAULT/$FILE"
 
     if [ ! -f "$FILE_PATH" ]; then
-        obsidian "obsidian://new?vault=main-vault&file=$FILE" > /dev/null 2>&1 &
-        sleep 12
+        #obsidian "obsidian://new?vault=main-vault&file=$FILE" > /dev/null 2>&1 &
+        #sleep 11
+        nvim --headless +ObsidianCustomToday +w +q $VAULT
     fi
 
     append_to_header "$FILE_PATH" "Pomodoro Timer" "$DATE"
