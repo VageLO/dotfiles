@@ -1,3 +1,4 @@
+#!/bin/sh
 TIMER_FILE="$HOME/.i3timer"
 STATUS="stopped"
 TIME=0
@@ -39,13 +40,21 @@ append_to_header() {
 
 write_daily_note() {
     local DATE=$1
-    FILE="Notes/DailyNotes/$(date +"%Y")/$(date +"%-m")/$(date +"%Y-%-m-%d").md"
+
+    local year=$(date +"%Y")
+    local month=$(date +"%-m")
+    local title=$(date +"%Y-%-m-%d")
+
+    local monday=$(date -d "$(( $(date +%u) - 1 )) days ago" +%Y%m%d)
+    local week_month=$(date -d "$monday" +%-m)
+    local week="Week $(date +"%V")"
+
+    FILE="Notes/DailyNotes/$year/$month/$title.md"
     FILE_PATH="$VAULT/$FILE"
 
     if [ ! -f "$FILE_PATH" ]; then
-        #obsidian "obsidian://new?vault=main-vault&file=$FILE" > /dev/null 2>&1 &
-        #sleep 11
-        nvim --headless +ObsidianCustomToday +w +q $VAULT
+        TEMPLATE_FILE="$VAULT/templates/Note templates/Nvim Daily Notes.md"
+        sed "s/{{year}}/$year/g;s/{{week_month}}/$week_month/g;s/{{week}}/$week/g" "$TEMPLATE_FILE" > "$FILE_PATH"
     fi
 
     append_to_header "$FILE_PATH" "Pomodoro Timer" "$DATE"
@@ -79,13 +88,14 @@ check_timer() {
     fi
 }
 
-while getopts 'd:s:n:a:' OPTION;
+while getopts 'd:s:n:a:v:' OPTION;
 do
     case "$OPTION" in
         d) POMODORO_DURATION="$OPTARG";;
         s) SOUND="$OPTARG";;
         n) TONOTES="$OPTARG";;
         a) ACTION="$OPTARG";;
+        v) VAULT="$OPTARG";;
     esac
 done
 
