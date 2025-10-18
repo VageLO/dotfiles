@@ -6,4 +6,4 @@ ln -s "$PWD/nvim" "$XDG_CONFIG_HOME"/nvim
 ln -s "$PWD/lazygit" "$XDG_CONFIG_HOME"/lazygit
 ln -s "$PWD/tmux" "$XDG_CONFIG_HOME"/tmux
 
-sudo apt-get install lazygit
+apt-get install lazygit
