@@ -5,5 +5,3 @@ mkdir -p "$XDG_CONFIG_HOME"
 ln -s "$PWD/nvim" "$XDG_CONFIG_HOME"/nvim
 ln -s "$PWD/lazygit" "$XDG_CONFIG_HOME"/lazygit
 ln -s "$PWD/tmux" "$XDG_CONFIG_HOME"/tmux
-
-apt-get install lazygit
