@@ -47,7 +47,7 @@ write_daily_note() {
 
     local monday=$(date -d "$(( $(date +%u) - 1 )) days ago" +%Y%m%d)
     local week_month=$(date -d "$monday" +%-m)
-    local week="Week $(date +"%V")"
+    local week="Week $(date +"%-V")"
 
     FILE="Notes/DailyNotes/$year/$month/$title.md"
     FILE_PATH="$VAULT/$FILE"
